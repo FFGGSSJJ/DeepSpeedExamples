@@ -232,7 +232,9 @@ def _build_index_mappings(name, data_prefix, documents, sizes,
             'shuffle': os.path.join(prefix, shuffle_idx_filename)
         }
         for f in idx_path.values():
+            print(f"Check datafile: {f}")
             if not os.path.isfile(f):
+                print(f"Missing datafile: {f}")
                 break
         else:
             # Found our files!
