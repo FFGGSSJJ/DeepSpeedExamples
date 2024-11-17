@@ -86,6 +86,7 @@ def forward_step(
     with context_manager:
         if checkpoint_activations_microbatch is None:
             output_tensor, loss_func = forward_step_func(data_iterator, model)
+            output_tensor = torch.tensor(output_tensor)
         else:
             output_tensor, loss_func = forward_step_func(
                 data_iterator, model, checkpoint_activations_microbatch
