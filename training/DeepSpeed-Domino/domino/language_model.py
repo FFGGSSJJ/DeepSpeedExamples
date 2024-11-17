@@ -42,6 +42,7 @@ def parallel_lm_logits(input_, word_embeddings_weight, parallel_output,
     return GatherFromModelParallelRegion.apply(logits_parallel)
 
 
+# setup model
 def get_language_model(config, num_tokentypes,
                        encoder_attn_mask_type,
                        pre_process=True, post_process=True):

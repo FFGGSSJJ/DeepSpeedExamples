@@ -46,6 +46,8 @@ class LLaMAModel(DominoModule):
         self.pre_process = pre_process
         self.post_process = post_process
         self.padded_vocab_size = args.padded_vocab_size
+
+        # setup llama model
         self.language_model = get_language_model(
             config=config,
             num_tokentypes=num_tokentypes,

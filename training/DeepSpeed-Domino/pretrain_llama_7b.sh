@@ -70,6 +70,7 @@ OUTPUT_ARGS="
     --eval-iters 1
 "
 
+source ~/.bashrc
 conda activate venv_deepspeed
 cmd="deepspeed --num_gpus $WORLD_SIZE \
     pretrain_llama.py \
