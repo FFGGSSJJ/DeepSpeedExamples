@@ -14,7 +14,9 @@ from domino.modules.fused_func import bias_dropout_add_fused_train, bias_dropout
 from domino.tensor_parallel.partition import _initialize_affine_weight_gpu, set_tensor_model_parallel_attributes
 from domino.tensor_parallel.partition import ColumnParallelLinear, RowParallelLinearNoComm
 
-from deepspeed.runtime.domino.transformer import DominoTransformer
+#from deepspeed.runtime.domino.transformer import DominoTransformer
+from domino.domino_transformer import DominoTransformer
+
 
 def parallel_lm_logits(input_, word_embeddings_weight, parallel_output,
                        bias=None):
