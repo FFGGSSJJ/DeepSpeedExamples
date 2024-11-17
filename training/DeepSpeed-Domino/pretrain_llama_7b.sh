@@ -5,11 +5,11 @@
 
 export CUDA_DEVICE_MAX_CONNECTIONS=1
  
-GPUS_PER_NODE=2
+GPUS_PER_NODE=1
 # Change for multinode config
-MASTER_ADDR=localhost
-MASTER_PORT=6000
-NNODES=1
+MASTER_ADDR=$1
+MASTER_PORT=$2
+NNODES=2
 NODE_RANK=0
 WORLD_SIZE=$(($GPUS_PER_NODE*$NNODES))
  
@@ -69,7 +69,8 @@ OUTPUT_ARGS="
     --eval-interval 1000 \
     --eval-iters 1
 "
- 
+
+conda activate venv_deepspeed
 cmd="deepspeed --num_gpus $WORLD_SIZE \
     pretrain_llama.py \
     $LLAMA_ARGS \
@@ -78,3 +79,5 @@ cmd="deepspeed --num_gpus $WORLD_SIZE \
     "
 echo $cmd
 eval $cmd 
+
+conda deactivate
