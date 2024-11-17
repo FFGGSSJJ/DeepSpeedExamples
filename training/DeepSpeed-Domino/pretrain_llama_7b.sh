@@ -20,7 +20,7 @@ MERGE_FILE="dataset/gpt2-merges.txt"
 DATA_PATH="dataset/my-gpt2_text_document"
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-export PYTHONPATH=$SCRIPT_DIR:$PYTHONPATH
+#export PYTHONPATH=$SCRIPT_DIR:$PYTHONPATH
  
 DISTRIBUTED_ARGS="
     --nproc_per_node $GPUS_PER_NODE \
