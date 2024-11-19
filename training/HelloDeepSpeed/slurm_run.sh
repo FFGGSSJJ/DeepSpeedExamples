@@ -5,7 +5,7 @@
 #SBATCH --gpus-per-node=1
 #SBATCH --time=00:10:00
 #SBATCH --partition=amdrtx
-#SBATCH --nodelist=ault[41-42]
+#SBATCH --nodelist=ault[42-44]
 #SBATCH --time=00:10:00
 #SBATCH --output=./slurm-log/slurm-%j.out
 #SBATCH --error=./slurm-log/slurm-%j.err
@@ -18,4 +18,4 @@ master_port=$(python3 -c 'import socket; s=socket.socket(); s.bind(("", 0)); pri
 echo "Master Addr: "$master_addr" Master Port: "$master_port
 echo "=== MASTER SETUP END ==="
 
-srun python train_bert.py --checkpoint_dir ./experiment
+srun bash run_ds.sh $master_addr $master_port
