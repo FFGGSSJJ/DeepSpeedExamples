@@ -10,7 +10,10 @@
 #SBATCH --output=./slurm-log/slurm-%j.out
 #SBATCH --error=./slurm-log/slurm-%j.err
 
+module load openmpi/4.1.1
 module load cuda/11.8.0
+module load rdma-core/34.0
+module load gcc/10.2.0
 
 echo "=== MASTER SETUP BEGIN ==="
 master_addr=$(scontrol show hostnames "$SLURM_JOB_NODELIST" | head -n 1)
