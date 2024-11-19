@@ -5,7 +5,7 @@
 #SBATCH --gpus-per-node=1
 #SBATCH --time=00:10:00
 #SBATCH --partition=amdrtx
-#SBATCH --nodelist=ault[42-44]
+#SBATCH --nodelist=ault[43-44]
 #SBATCH --time=00:10:00
 #SBATCH --output=./slurm-log/slurm-%j.out
 #SBATCH --error=./slurm-log/slurm-%j.err
